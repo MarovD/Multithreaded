@@ -29,6 +29,7 @@ __fastcall Tread::Tread(bool CreateSuspended)
 	MyEvent= new TEvent(NULL,true,false,"",false);
 	dataBuffer = new byte[512];
 	Tread2ptr=new Tread2(MyEvent,dataBuffer,true);
+
 }
 //---------------------------------------------------------------------------
 void __fastcall Tread::Execute()
@@ -62,6 +63,7 @@ void __fastcall Tread::Execute()
 		Form1->Label1->Caption="Ошибка1";
 		CloseHandle(fileHander);
 		delete[] dataBuffer;
+        Sleep(INFINITY);
         break;
 	 }
 
@@ -79,6 +81,7 @@ void __fastcall Tread::Execute()
 		 Form1->Label1->Caption="Ошибка2";
 		 CloseHandle(fileHander);
 		 delete[] dataBuffer;
+		 Sleep(INFINITY);
 		 break;
 	 }
 
